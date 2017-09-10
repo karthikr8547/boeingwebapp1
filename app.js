@@ -1,3 +1,5 @@
+/* global multiparty */
+/* global azure */
 //Initial draft
 var express = require('express');
 var app = express();

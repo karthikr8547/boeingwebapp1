@@ -16,10 +16,25 @@ app.get('/upload', function (req, res) {
 });
 
 app.post('/upload', function (req, res) {
-    var path = req.files.snapshot.path;
-    var bs= azure.createBlobService();
-    bs.createBlockBlobFromFile('c', 'test.png', path, function (error) { });
-    res.send("OK");
+    var blobService = azure.createBlobService();
+    var form = new multiparty.Form();
+    form.on('part', function(part) {
+        if (part.filename) {
+
+            var size = part.byteCount - part.byteOffset;
+            var name = part.filename;
+
+            blobService.createBlockBlobFromStream('c', name, part, size, function(error) {
+                if (error) {
+                    res.send({ Grrr: error });
+                }
+            });
+        } else {
+            form.handlePart(part);
+        }
+    });
+    form.parse(req);
+    res.send('OK');
 });
 
 var port = process.env.PORT || 1337;

@@ -49,7 +49,7 @@ app.post('/upload', function (req, res) {
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
 
-            blobService.createBlockBlobFromStream('c', name, part, size, function(error) {
+            blobService.createBlockBlobFromStream('mycontainer', name, part, size, function(error) {
                 if (error) {
                     res.send({ Grrr: error });
                 }

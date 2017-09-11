@@ -3,6 +3,7 @@
 //Initial draft
 var express = require('express');
 var app = express();
+var azure = require('azure-storage');
 
 app.get('/',function(req,res){
   res.send("Hello Express App");

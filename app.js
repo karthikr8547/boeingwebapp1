@@ -19,7 +19,7 @@ app.get('/upload', function (req, res) {
     );
 });
 
-app.post('/upload', function (req, res) {
+/*app.post('/upload', function (req, res) {
   var bs = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
   var form = new formidable.IncomingForm();
   form.onPart = function(part){
@@ -31,17 +31,17 @@ app.post('/upload', function (req, res) {
   };
   form.parse(req);
   res.send('OK');
-});
+});*/
 
 /*app.post('/upload', function (req, res) {
     var path = req.file.snapshot.path;
     var bs= azure.createBlobService();
     bs.createBlockBlobFromFile('c', 'test.png', path, function (error) { });
     res.send("OK");
-});
+});*/
 
 app.post('/upload', function (req, res) {
-    var blobService = azure.createBlobService();
+    var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
     var form = new multiparty.Form();
     form.on('part', function(part) {
         if (part.filename) {
@@ -60,7 +60,7 @@ app.post('/upload', function (req, res) {
     });
     form.parse(req);
     res.send('OK');
-});*/
+});
 
 var port = process.env.PORT || 1337;
 

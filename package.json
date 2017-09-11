@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "main": "app.js",
   "private": true,
+<<<<<<< HEAD
   "scripts": {
     "start": "node server"
   },
@@ -12,5 +13,10 @@
   "license": "Apache",
   "engines": {
   "node": "~0.10.0 || ~4.2.0"
+=======
+  "license": "Apache",
+"engines": {
+    "node": "~0.10.0 || ~4.2.0"
+>>>>>>> 82d6cd9b6000efb660774885d6886bd43531fcaf
   }
 }

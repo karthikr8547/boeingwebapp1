@@ -53,7 +53,7 @@ app.post('/upload', function (req, res) {
 
             blobService.createBlockBlobFromLocalFile('mycontainer', 'taskblob', name, function(error) {
                 if (error) {
-                    res.send({ Grrr: error });
+                   return res.send({ Grrr: error });
                 }
             });
         } else {

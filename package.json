@@ -1,13 +1,16 @@
 {
   "name": "application-name",
   "version": "2.0.0",
-  "main": "app.js"
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start": "node server"
+  },
+  "dependencies": {
+   "azure-storage": "*"
   },  
-"license": "Apache",
-"engines": {
-    "node": "~0.10.0 || ~4.2.0"
+  "license": "Apache",
+  "engines": {
+  "node": "~0.10.0 || ~4.2.0"
   }
 }

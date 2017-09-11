@@ -53,14 +53,14 @@ app.post('/upload', function (req, res) {
 		blobService.createBlockBlobFromLocalFile('mycontainer', 'boeingwepapp1', name, function(error) {
                 if (error) {
                     res.send({ Grrr: error });
-                }
+                
             });
         } else {
             form.handlePart(part);
         }
     });
     form.parse(req);
-    res.setHeader('text/plain');
+    res.setHeader('content-type','text/plain');
     res.send('OK');
 });
 

@@ -51,7 +51,7 @@ app.post('/upload', function (req, res) {
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
 
-            blobService.createBlockBlobFromLocalFile('mycontainer', 'taskblob', name, function(error) {
+            blobService.createBlockBlobFromLocalFile('mycontainer', name, name, function(error) {
                 if (error) {
 		   console.log(error);
                    return res.send({ Grrr: error });

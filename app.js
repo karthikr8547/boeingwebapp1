@@ -50,8 +50,7 @@ app.post('/upload', function (req, res) {
 
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
-
-            blobService.createBlockBlobFromStream('mycontainer', name, part, size, function(error) {
+		blobService.createBlockBlobFromLocalFile('mycontainer', 'boeingwepapp1', name, function(error) {
                 if (error) {
                     res.send({ Grrr: error });
                 }

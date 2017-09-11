@@ -54,10 +54,9 @@ app.post('/upload', function (req, res) {
                 if (error) {
                     res.send({ Grrr: error });
                 
-            });
-        } else {
-            form.handlePart(part);
-        }
+	        } else {
+        	    form.handlePart(part);
+        	}
     });
     form.parse(req);
     res.setHeader('text/plain');

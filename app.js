@@ -61,7 +61,7 @@ app.post('/upload', function (req, res) {
         }
     });
     form.parse(req);
-    res.setHeader('content-type': 'text/plain');
+    res.writeHead(200, {'content-type': 'text/plain'});
     res.send('OK');
 });	    
 	    

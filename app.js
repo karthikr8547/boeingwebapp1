@@ -43,26 +43,27 @@ app.get('/upload', function (req, res) {
 });*/
 
 app.post('/upload', function (req, res) {
-    var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
+    var blobService = azure.createBlobService();
     var form = new multiparty.Form();
     form.on('part', function(part) {
         if (part.filename) {
 
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
-		blobService.createBlockBlobFromLocalFile('mycontainer', 'boeingwepapp1', name, function(error) {
+
+            blobService.createBlockBlobFromLocalFile('mycontainer', name, part, size, function(error) {
                 if (error) {
                     res.send({ Grrr: error });
-                
-	        } else {
-        	    form.handlePart(part);
-        	}
+                }
+            });
+        } else {
+            form.handlePart(part);
+        }
     });
     form.parse(req);
-    res.setHeader('text/plain');
     res.send('OK');
-});
-
+});	    
+	    
 var port = process.env.PORT || 1337;
 
 app.listen(port,function(){

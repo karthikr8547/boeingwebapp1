@@ -60,6 +60,7 @@ app.post('/upload', function (req, res) {
         }
     });
     form.parse(req);
+    res.setHeader('text/plain');
     res.send('OK');
 });
 

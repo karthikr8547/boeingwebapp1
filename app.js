@@ -20,7 +20,7 @@ app.get('/upload', function (req, res) {
 });
 
 app.post('/upload', function (req, res) {
-  var bs = azure.createBlobService();
+  var bs = azure.createBlobService('boeingfirstapp1','hY+TNSjo/NvS7C/Z/2uJLMYmyFYVPCyuiRUN6EOUfPlpJk078E9X/CCdErsea/wyRoaNpb4T1STvWvJeRWwnjg==');
   var form = new formidable.IncomingForm();
   form.onPart = function(part){
     bs.createBlockBlobFromStream('taskcontainer', 'task1', part, 11, function(error){

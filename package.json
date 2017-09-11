@@ -9,7 +9,7 @@
   "dependencies": {
     "azure-storage": "*",
     "formidable": "*",
-    "multiparty": "*",
+    "multiparty": "*"
   },  
   "license": "Apache",
   "engines": {

@@ -43,7 +43,7 @@ app.get('/upload', function (req, res) {
 });*/
 
 app.post('/upload', function (req, res) {
-    var blobService = azure.createBlobService();
+    var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
     var form = new multiparty.Form();
     form.on('part', function(part) {
         if (part.filename) {

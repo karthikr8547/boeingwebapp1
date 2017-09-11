@@ -23,7 +23,7 @@ app.post('/upload', function (req, res) {
   var bs = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
   var form = new formidable.IncomingForm();
   form.onPart = function(part){
-    bs.createBlockBlobFromStream('taskcontainer', 'task1', part, 11, function(error){
+    bs.createBlockBlobFromStream('mycontainer', 'task1', part, 11, function(error){
       if(!error){
           // Blob uploaded
       }

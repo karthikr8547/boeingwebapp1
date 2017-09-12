@@ -69,10 +69,12 @@ app.post('/upload', function (req, res) {
 	fstream = fs.createWriteStream(__dirname + '/' + filename);
 	file.pipe(fstream); 
 	fstream.on('close', function () {	
-	res.redirect('back');
+	//res.redirect('back');
+	res.send(
 	    '<form action="/uploadAzure" method="post" enctype="multipart/form-data">' +
 	    '<input type="submit" value="Confirm" />'
-	    '</form>'		
+	    '</form>'	
+	);
 	});	
     });
  });

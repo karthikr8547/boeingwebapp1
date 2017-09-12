@@ -14,7 +14,7 @@ var app = express();
 
 app.use(busboy()); 
 
-var upload = multer({ dest: 'uploads/' });
+//var upload = multer({ dest: 'uploads/' });
 
 //app.use(fileUpload());
 
@@ -88,9 +88,9 @@ app.post('/upload', function(req, res) {
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
         console.log("Uploading: " + filename); 
-        //fstream = fs.createWriteStream(__dirname + '/files/' + filename);
-	    console.log(__dirname + '/' + filename);
-	  fstream = fs.createWriteStream(__dirname + '/' + filename);
+        fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+	  //  console.log(__dirname + '/' + filename);
+	  //fstream = fs.createWriteStream(__dirname + '/' + filename);
 	    file.pipe(fstream);
         fstream.on('close', function () {
             res.redirect('back');

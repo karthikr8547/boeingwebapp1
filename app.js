@@ -72,7 +72,7 @@ function uploadFile(req,res,next){
 	// res.redirect('back');
 	});	
     });
-	app.use(delay(1000));
+	app.use(delay(20000));
 	next();	
 }
 

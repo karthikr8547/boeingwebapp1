@@ -9,8 +9,10 @@ var path = require('path');
 var azure = require('azure-storage');
 var multiparty = require('multiparty');
 var multer  = require('multer');
-
+var busboy = require('connect-busboy');
 var app = express();
+
+app.use(busboy()); 
 
 var upload = multer({ dest: 'uploads/' });
 

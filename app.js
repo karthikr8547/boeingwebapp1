@@ -60,15 +60,15 @@ app.get('/upload', function (req, res) {
 });*/
 
 
-/*app.post('/upload', function (req, res) {
+app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
 	form.on('part', function(part) {
         if (part.filename) {
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
-           // blobService.createBlockBlobFromLocalFile('mycontainer', name, '/files/' + name, function(error) {
-            blobService.createBlockBlobFromFile('mycontainer', name, '/files/' + name, function(error) {
+            blobService.createBlockBlobFromLocalFile('mycontainer', name, name, function(error) {
+            //blobService.createBlockBlobFromFile('mycontainer', name, '/files/' + name, function(error) {
 		if (error) {
 		   console.log(error);
                    return res.send({ Grrr: error });
@@ -81,7 +81,7 @@ app.get('/upload', function (req, res) {
     form.parse(req);
     res.setHeader('content-type', 'text/plain');
     res.send('OK');
-});   */ 
+});  
 	  
 /*app.post('/upload', function(req, res) {
     var fstream;
@@ -95,12 +95,6 @@ app.get('/upload', function (req, res) {
         });
     });
 });*/
-
-app.post('/upload', function (req, res) {
-    var bs= azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
-    bs.createBlockBlobFromFile('mycontainer', name, '/files/' + name,  function (error) { });
-    res.send("OK");
-});
 
 var port = process.env.PORT || 1337;
 

@@ -52,15 +52,13 @@ app.get('/upload', function (req, res) {
 app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
-    var path = req.file.snapshot.path;
+   // var path = req.file.snapshot.path;
 	form.on('part', function(part) {
         if (part.filename) {
-
             var size = part.byteCount - part.byteOffset;
             var name = part.filename;
-
-            //blobService.createBlockBlobFromLocalFile('mycontainer', name, name, function(error) {
-            blobService.createBlockBlobFromFile('mycontainer', name, path, function(error) {
+            blobService.createBlockBlobFromLocalFile('mycontainer', name, name, function(error) {
+           // blobService.createBlockBlobFromFile('mycontainer', name, path, function(error) {
 		if (error) {
 		   console.log(error);
                    return res.send({ Grrr: error });

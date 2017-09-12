@@ -86,9 +86,9 @@ app.post('/upload', function (req, res) {
 });*/	    
 	  
 // Upload route.
-app.post('/upload', upload.single('snapshot'), function(req, res) {
+/*app.post('/upload', upload.single('snapshot'), function(req, res) {
 	console.log(path.basename(req.file.snapshot));
-/*    var form = new formidable.IncomingForm();
+    var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
         var old_path = files.snapshot.path,
@@ -111,8 +111,22 @@ app.post('/upload', upload.single('snapshot'), function(req, res) {
                 });
             });
         });
-    });*/
+    });
+});*/
+
+app.post('/upload', function(req, res) {
+    var fstream;
+    req.pipe(req.busboy);
+    req.busboy.on('file', function (fieldname, file, filename) {
+        console.log("Uploading: " + filename); 
+        fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+        file.pipe(fstream);
+        fstream.on('close', function () {
+            res.redirect('back');
+        });
+    });
 });
+
 var port = process.env.PORT || 1337;
 
 app.listen(port,function(){

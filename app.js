@@ -81,8 +81,9 @@ app.post('/upload', function (req, res) {
 });*/	    
 	  
 // Upload route.
-/*app.post('/upload', function(req, res) {
-    var form = new formidable.IncomingForm();
+app.post('/upload', function(req, res) {
+	console.log(path);
+/*    var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
         var old_path = files.snapshot.path,
@@ -105,9 +106,8 @@ app.post('/upload', function (req, res) {
                 });
             });
         });
-    });
-});*/
-
+    });*/
+});
 var port = process.env.PORT || 1337;
 
 app.listen(port,function(){

@@ -90,7 +90,8 @@ app.post('/upload', function(req, res) {
         console.log("Uploading: " + filename); 
         //fstream = fs.createWriteStream(__dirname + '/files/' + filename);
 	fstream = fs.createWriteStream(__dirname + '/' + filename);
-	file.pipe(fstream);
+	file.pipe(fstream); 
+	fstream.on('close', function () {
 	// Moving file to Blob Storage    
 	    var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
 	    var form = new multiparty.Form();
@@ -111,8 +112,7 @@ app.post('/upload', function(req, res) {
 	    });
 	    form.parse(req);	    
     	    //res.setHeader('content-type', 'text/plain');
-	    //res.send('OK');  
-	fstream.on('close', function () {		
+	    //res.send('OK'); 
          res.redirect('back');
         });
     });

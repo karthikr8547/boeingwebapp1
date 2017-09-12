@@ -81,8 +81,8 @@ app.post('/upload', function (req, res) {
 });*/	    
 	  
 // Upload route.
-app.post('/upload', function(req, res) {
-	console.log(path.basename(req.files.snapshot));
+app.post('/upload', upload.single('snapshot'), function(req, res) {
+	console.log(path.basename(req.file.snapshot));
 /*    var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`

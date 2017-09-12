@@ -2,12 +2,11 @@
 /* global azure */
 //Initial draft
 var express = require('express');
-var http = require('http'),
-var formidable = require('formidable'),
-var fs = require('fs'),
+var http = require('http');
+var formidable = require('formidable');
+var fs = require('fs');
 var path = require('path');
 var azure = require('azure-storage');
-var formidable = require('formidable');
 var multiparty = require('multiparty');
 
 var app = express();

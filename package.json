@@ -14,7 +14,8 @@
     "http": "*",
     "fs": "*",
     "multer": "*",
-    "connect-busboy": "*"    
+    "connect-busboy": "*",  
+    "express-delay": "*"    
   },  
   "license": "Apache",
   "engines": {

@@ -2,7 +2,7 @@
 /* global azure */
 //Initial draft
 var express = require('express');
-//var fileUpload = require('express-fileupload');
+var fileUpload = require('express-fileupload');
 var app = express();
 var azure = require('azure-storage');
 var formidable = require('formidable');

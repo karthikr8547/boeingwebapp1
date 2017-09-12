@@ -6,7 +6,9 @@ var app = express();
 var azure = require('azure-storage');
 var formidable = require('formidable');
 var multiparty = require('multiparty');
+var fileUpload = require('express-fileupload');
 
+app.use(fileUpload());
 
 app.get('/',function(req,res){
   res.send("Hello Express App");
@@ -52,7 +54,8 @@ app.get('/upload', function (req, res) {
 app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
-   // var path = req.file.snapshot.path;
+    var path = req.files.snapshot;
+       console.log(path);
 	form.on('part', function(part) {
         if (part.filename) {
             var size = part.byteCount - part.byteOffset;

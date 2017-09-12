@@ -68,10 +68,10 @@ function uploadFile(req,res,next){
 	fstream = fs.createWriteStream(__dirname + '/' + filename);
 	file.pipe(fstream); 
 	fstream.on('close', function () {	
-	next();
 	// res.redirect('back');
-	});
+	});	
     });
+   next();	
 }
 
 app.post('/upload', uploadFile, function (req, res) {

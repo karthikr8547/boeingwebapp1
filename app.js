@@ -59,7 +59,7 @@ app.get('/upload', function (req, res) {
     res.send("OK");
 });*/
 
-/*
+
 app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
@@ -83,38 +83,9 @@ app.post('/upload', function (req, res) {
     form.parse(req);
     res.setHeader('content-type', 'text/plain');
     res.send('OK');
-});*/	    
+});	    
 	  
-// Upload route.
-/*app.post('/upload', upload.single('snapshot'), function(req, res) {
-	console.log(path.basename(req.file.snapshot));
-    var form = new formidable.IncomingForm();
-    form.parse(req, function(err, fields, files) {
-        // `file` is the name of the <input> field of type `file`
-        var old_path = files.snapshot.path,
-            file_size = files.snapshot.size,
-            file_ext = files.snapshot.name.split('.').pop(),
-            index = old_path.lastIndexOf('/') + 1,
-            file_name = old_path.substr(index),
-            new_path = path.join(process.env.PWD, '/uploads/', file_name + '.' + file_ext);
-
-        fs.readFile(old_path, function(err, data) {
-            fs.writeFile(new_path, data, function(err) {
-                fs.unlink(old_path, function(err) {
-                    if (err) {
-                        res.status(500);
-                        res.json({'success': false});
-                    } else {
-                        res.status(200);
-                        res.json({'success': true});
-                    }
-                });
-            });
-        });
-    });
-});*/
-
-app.post('/upload', function(req, res) {
+/*app.post('/upload', function(req, res) {
     var fstream;
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
@@ -125,7 +96,7 @@ app.post('/upload', function(req, res) {
             res.redirect('back');
         });
     });
-});
+});*/
 
 var port = process.env.PORT || 1337;
 

@@ -69,17 +69,12 @@ app.post('/upload', function (req, res) {
 	fstream = fs.createWriteStream(__dirname + '/' + filename);
 	file.pipe(fstream); 
 	fstream.on('close', function () {	
-	//res.redirect('back');
-	res.send(
-	    '<form action="/uploadAzure" method="post" enctype="multipart/form-data">' +
-	    '<input type="submit" value="Confirm" />'
-	    '</form>'	
-	);
+	res.redirect('back');
 	});	
     });
  });
 
-app.post('/uploadAzure', function (req, res) {
+/*app.post('/uploadAzure', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
 	form.on('part', function(part) {

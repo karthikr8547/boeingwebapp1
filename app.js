@@ -60,7 +60,7 @@ app.get('/upload', function (req, res) {
     res.send("OK");
 });*/
 
-function uploadFile(req,res,next){
+app.post('/upload', function (req, res) {
     var fstream;
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
@@ -69,16 +69,17 @@ function uploadFile(req,res,next){
 	fstream = fs.createWriteStream(__dirname + '/' + filename);
 	file.pipe(fstream); 
 	fstream.on('close', function () {	
-	// res.redirect('back');
+	res.redirect('back');
+	    '<form action="/uploadAzure" method="post" enctype="multipart/form-data">' +
+	    '<input type="submit" value="Confirm" />'
+	    '</form>'		
 	});	
     });
-	next();	
 }
 
-app.post('/upload', uploadFile, function (req, res) {
+app.post('/uploadAzure', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
-    app.use(delay(20000));	
 	form.on('part', function(part) {
         if (part.filename) {
             var size = part.byteCount - part.byteOffset;

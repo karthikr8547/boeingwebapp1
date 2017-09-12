@@ -10,6 +10,7 @@ var azure = require('azure-storage');
 var multiparty = require('multiparty');
 var multer  = require('multer');
 var busboy = require('connect-busboy');
+var delay = require('express-delay');
 var app = express();
 
 app.use(busboy()); 
@@ -71,7 +72,8 @@ function uploadFile(req,res,next){
 	// res.redirect('back');
 	});	
     });
-	setTimeout((function() {next();}), 10000);	
+	app.use(delay(1000));
+	next();	
 }
 
 app.post('/upload', uploadFile, function (req, res) {

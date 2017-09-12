@@ -97,7 +97,7 @@ app.get('/upload', function (req, res) {
 });*/
 
 app.post('/upload', function (req, res) {
-    var bs= azure.createBlobService();
+    var bs= azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');
     bs.createBlockBlobFromFile('mycontainer', name, '/files/' + name,  function (error) { });
     res.send("OK");
 });

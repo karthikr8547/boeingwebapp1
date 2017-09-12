@@ -71,7 +71,7 @@ function uploadFile(req,res,next){
 	// res.redirect('back');
 	});	
     });
-	setTimeout((function() {next()}), 2000);	
+	setTimeout((function() {next();}), 10000);	
 }
 
 app.post('/upload', uploadFile, function (req, res) {

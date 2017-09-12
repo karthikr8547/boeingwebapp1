@@ -10,7 +10,7 @@
     "azure-storage": "*",
     "formidable": "*",
     "multiparty": "*",
-    "express-fileupload": "*"    
+    "path": "*"    
   },  
   "license": "Apache",
   "engines": {

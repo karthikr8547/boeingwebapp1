@@ -75,11 +75,10 @@ function uploadFile(req,res,next){
 	next();	
 }
 
-app.use(delay(20000));
-
 app.post('/upload', uploadFile, function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
+    app.use(delay(20000));	
 	form.on('part', function(part) {
         if (part.filename) {
             var size = part.byteCount - part.byteOffset;

@@ -75,7 +75,7 @@ app.post('/upload', function (req, res) {
 	    '</form>'		
 	});	
     });
-}
+ });
 
 app.post('/uploadAzure', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  

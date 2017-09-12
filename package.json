@@ -10,7 +10,9 @@
     "azure-storage": "*",
     "formidable": "*",
     "multiparty": "*",
-    "path": "*"    
+    "path": "*",
+    "http": "*",
+    "fs": "*"
   },  
   "license": "Apache",
   "engines": {

@@ -60,7 +60,7 @@ app.get('/upload', function (req, res) {
 });*/
 
 
-app.post('/upload', function (req, res) {
+/*app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
 	form.on('part', function(part) {
@@ -81,7 +81,7 @@ app.post('/upload', function (req, res) {
     form.parse(req);
     res.setHeader('content-type', 'text/plain');
     res.send('OK');
-});    
+});   */ 
 	  
 /*app.post('/upload', function(req, res) {
     var fstream;
@@ -95,6 +95,12 @@ app.post('/upload', function (req, res) {
         });
     });
 });*/
+
+app.post('/upload', function (req, res) {
+    var bs= azure.createBlobService();
+    bs.createBlockBlobFromFile('mycontainer', name, '/files/' + name,  function (error) { });
+    res.send("OK");
+});
 
 var port = process.env.PORT || 1337;
 

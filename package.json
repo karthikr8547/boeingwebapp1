@@ -9,7 +9,8 @@
   "dependencies": {
     "azure-storage": "*",
     "formidable": "*",
-    "multiparty": "*"
+    "multiparty": "*",
+    "express-fileupload": "*"    
   },  
   "license": "Apache",
   "engines": {

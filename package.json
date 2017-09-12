@@ -13,7 +13,8 @@
     "path": "*",
     "http": "*",
     "fs": "*",
-    "multer": "*"
+    "multer": "*",
+    "connect-busboy": "*"    
   },  
   "license": "Apache",
   "engines": {

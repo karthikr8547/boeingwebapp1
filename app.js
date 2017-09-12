@@ -60,7 +60,7 @@ app.get('/upload', function (req, res) {
 });*/
 
 
-/*app.post('/upload', function (req, res) {
+app.post('/upload', function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
     var form = new multiparty.Form();
 	form.on('part', function(part) {
@@ -81,9 +81,9 @@ app.get('/upload', function (req, res) {
     form.parse(req);
     res.setHeader('content-type', 'text/plain');
     res.send('OK');
-}); */
+});
 
-function uploadFile(req,res,next){
+/*function uploadFile(req,res,next){
     var fstream;
     req.pipe(req.busboy);
     req.busboy.on('file', function (fieldname, file, filename) {
@@ -96,30 +96,9 @@ function uploadFile(req,res,next){
 	});
     });
 	next();
-}
+}*/
 
-app.post('/upload', uploadFile, function (req, res) {
-    var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  
-    var form = new multiparty.Form();
-	form.on('part', function(part) {
-        if (part.filename) {
-            var size = part.byteCount - part.byteOffset;
-            var name = part.filename;
-            blobService.createBlockBlobFromLocalFile('mycontainer', name, name, function(error) {
-            //blobService.createBlockBlobFromFile('mycontainer', name, '/files/' + name, function(error) {
-		if (error) {
-		   console.log(error);
-                   return res.send({ Grrr: error });
-                } 
-            });
-        } else {
-            form.handlePart(part);
-        }
-    });
-    form.parse(req);
-    res.setHeader('content-type', 'text/plain');
-    res.send('OK');
-}); 
+
 
 /*app.post('/upload', function(req, res) {
     var fstream;

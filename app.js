@@ -8,8 +8,11 @@ var fs = require('fs');
 var path = require('path');
 var azure = require('azure-storage');
 var multiparty = require('multiparty');
+var multer  = require('multer');
 
 var app = express();
+
+var upload = multer({ dest: 'uploads/' });
 
 //app.use(fileUpload());
 

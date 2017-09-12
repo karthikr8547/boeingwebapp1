@@ -89,7 +89,7 @@ app.post('/upload', function(req, res) {
     req.busboy.on('file', function (fieldname, file, filename) {
         console.log("Uploading: " + filename); 
         fstream = fs.createWriteStream(__dirname + '/files/' + filename);
-	  //  console.log(__dirname + '/' + filename);
+	    console.log(__dirname + '//' + filename);
 	  //fstream = fs.createWriteStream(__dirname + '/' + filename);
 	    file.pipe(fstream);
         fstream.on('close', function () {

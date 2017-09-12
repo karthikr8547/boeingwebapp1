@@ -81,7 +81,7 @@ app.post('/upload', function (req, res) {
 });*/	    
 	  
 // Upload route.
-app.post('/upload', function(req, res) {
+/*app.post('/upload', function(req, res) {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
         // `file` is the name of the <input> field of type `file`
@@ -106,7 +106,7 @@ app.post('/upload', function(req, res) {
             });
         });
     });
-});
+});*/
 
 var port = process.env.PORT || 1337;
 

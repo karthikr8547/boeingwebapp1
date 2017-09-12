@@ -25,7 +25,7 @@ app.get('/',function(req,res){
 app.get('/upload', function (req, res) {
     res.send(
     '<form action="/upload" method="post" enctype="multipart/form-data">' +
-    '<input type="file" name="snapshot" />' +
+    '<input type="file" name="file" />' +
     '<input type="submit" value="Upload" />' +
     '</form>'
     );

@@ -72,9 +72,10 @@ function uploadFile(req,res,next){
 	// res.redirect('back');
 	});	
     });
-	app.use(delay(20000));
 	next();	
 }
+
+app.use(delay(20000));
 
 app.post('/upload', uploadFile, function (req, res) {
     var blobService = azure.createBlobService('boeingwepapp1','YqMF4F3rl76F/IhcRUXj1Ede1zHlSRHCtly/7BjB1cMAjsMBlksK3O8DPwFlIy0PfU/TiPBEDdvXGahZeeH4tQ==');  

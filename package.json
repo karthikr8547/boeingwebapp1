@@ -12,7 +12,8 @@
     "multiparty": "*",
     "path": "*",
     "http": "*",
-    "fs": "*"
+    "fs": "*",
+    "multer": "*"
   },  
   "license": "Apache",
   "engines": {
